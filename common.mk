@@ -64,6 +64,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES := \
     audio.a2dp.default \
     audio.primary.smdk4x12 \
+    audio.r_submix.default \
     audio.usb.default \
     com.android.future.usb.accessory \
     gralloc.exynos4 \
@@ -75,9 +76,13 @@ PRODUCT_PACKAGES := \
     lights.exynos4 \
     macloader \
     tinymix \
-    OmniTorch \
     SamsungServiceMode \
     DeviceSettings
+
+ifneq ($(TARGET_NO_CAM_FLASH) ,true)
+PRODUCT_PACKAGES += \
+    OmniTorch
+endif
 
 # MFC API
 PRODUCT_PACKAGES += \
